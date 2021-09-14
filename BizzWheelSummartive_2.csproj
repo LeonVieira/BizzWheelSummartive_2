@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
   <Import Project="packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.11.1\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props" Condition="Exists('packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.11.1\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props')" />
   <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -48,6 +49,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -115,12 +122,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
       <HintPath>packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
@@ -183,20 +184,134 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\about.html" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Images\NetVirJou.jpg" />
+    <Content Include="Views\Home\contact.html" />
+    <Content Include="Content\css\animate.min.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\cubeportfolio.min.css" />
+    <Content Include="Content\css\font-awesome.css" />
+    <Content Include="Content\css\jquery.fancybox.min.css" />
+    <Content Include="Content\css\magnific-popup.min.css" />
+    <Content Include="Content\css\owl-carousel.min.css" />
+    <Content Include="Content\css\reset.css" />
+    <Content Include="Content\css\responsive.css" />
+    <Content Include="Content\css\skins\skin-1.css" />
+    <Content Include="Content\css\skins\skin-2.css" />
+    <Content Include="Content\css\skins\skin-3.css" />
+    <Content Include="Content\css\skins\skin-4.css" />
+    <Content Include="Content\css\slicknav.min.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\img\bg-1.png" />
+    <Content Include="Content\img\bg-2.png" />
+    <Content Include="Content\img\bg-3.png" />
+    <Content Include="Content\img\bg-4.png" />
+    <Content Include="Content\img\bg-5.png" />
+    <Content Include="Content\img\bg-6.png" />
+    <Content Include="Content\img\bg-7.png" />
+    <Content Include="Content\img\bg-8.png" />
+    <Content Include="Content\img\bg-agency.jpg" />
+    <Content Include="Content\img\client\client-1.png" />
+    <Content Include="Content\img\client\client-2.png" />
+    <Content Include="Content\img\client\client-3.png" />
+    <Content Include="Content\img\client\client-4.png" />
+    <Content Include="Content\img\client\client-5.png" />
+    <Content Include="Content\img\client\client-6.png" />
+    <Content Include="Content\img\favicon.png" />
+    <Content Include="Content\img\logo.png" />
+    <Content Include="Content\img\logo2.png" />
+    <Content Include="Content\img\map.png" />
+    <Content Include="Views\Home\index.html" />
+    <Content Include="Content\js\active.js" />
+    <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\cubeportfolio.min.js" />
+    <Content Include="Content\js\easing.js" />
+    <Content Include="Content\js\jquery-fancybox.min.js" />
+    <Content Include="Content\js\jquery-migrate-3.0.0.js" />
+    <Content Include="Content\js\jquery.counterup.min.js" />
+    <Content Include="Content\js\jquery.min.js" />
+    <Content Include="Content\js\magnific-popup.min.js" />
+    <Content Include="Content\js\modernizr.min.js" />
+    <Content Include="Content\js\owl-carousel.min.js" />
+    <Content Include="Content\js\popper.min.js" />
+    <Content Include="Content\js\scrollup.js" />
+    <Content Include="Content\js\slicknav.min.js" />
+    <Content Include="Content\js\waypoints.min.js" />
+    <Content Include="Views\Home\services.html" />
+    <Content Include="Content\style.css" />
+    <Content Include="css\animate.min.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\cubeportfolio.min.css" />
+    <Content Include="css\font-awesome.css" />
+    <Content Include="css\jquery.fancybox.min.css" />
+    <Content Include="css\magnific-popup.min.css" />
+    <Content Include="css\owl-carousel.min.css" />
+    <Content Include="css\reset.css" />
+    <Content Include="css\responsive.css" />
+    <Content Include="css\skins\skin-1.css" />
+    <Content Include="css\skins\skin-2.css" />
+    <Content Include="css\skins\skin-3.css" />
+    <Content Include="css\skins\skin-4.css" />
+    <Content Include="css\slicknav.min.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="img\bg-1.png" />
+    <Content Include="img\bg-2.png" />
+    <Content Include="img\bg-3.png" />
+    <Content Include="img\bg-4.png" />
+    <Content Include="img\bg-5.png" />
+    <Content Include="img\bg-6.png" />
+    <Content Include="img\bg-7.png" />
+    <Content Include="img\bg-8.png" />
+    <Content Include="img\bg-agency.jpg" />
+    <Content Include="img\client\client-1.png" />
+    <Content Include="img\client\client-2.png" />
+    <Content Include="img\client\client-3.png" />
+    <Content Include="img\client\client-4.png" />
+    <Content Include="img\client\client-5.png" />
+    <Content Include="img\client\client-6.png" />
+    <Content Include="img\favicon.png" />
+    <Content Include="img\logo.png" />
+    <Content Include="img\logo2.png" />
+    <Content Include="img\map.png" />
+    <Content Include="js\active.js" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\cubeportfolio.min.js" />
+    <Content Include="js\easing.js" />
+    <Content Include="js\jquery-fancybox.min.js" />
+    <Content Include="js\jquery-migrate-3.0.0.js" />
+    <Content Include="js\jquery.counterup.min.js" />
+    <Content Include="js\jquery.min.js" />
+    <Content Include="js\magnific-popup.min.js" />
+    <Content Include="js\modernizr.min.js" />
+    <Content Include="js\owl-carousel.min.js" />
+    <Content Include="js\popper.min.js" />
+    <Content Include="js\scrollup.js" />
+    <Content Include="js\slicknav.min.js" />
+    <Content Include="js\waypoints.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\MIT License.md" />
     <None Include="Dockerfile" />
     <None Include=".dockerignore">
       <DependentUpon>Dockerfile</DependentUpon>
     </None>
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <None Include="Properties\PublishProfiles\BizzWheelSum - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -208,6 +323,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="style.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -228,8 +344,8 @@
     <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
     <Content Include="Views\Account\ForgotPassword.cshtml" />
     <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\Login_o.cshtml" />
+    <Content Include="Views\Account\Register_o.cshtml" />
     <Content Include="Views\Account\ResetPassword.cshtml" />
     <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
     <Content Include="Views\Account\SendCode.cshtml" />
@@ -242,9 +358,14 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Home\Portfolio.cshtml" />
+    <Content Include="Views\Shared\_PartialLogout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\fonts\StockFonts\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -294,8 +415,11 @@
     <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
     <Error Condition="!Exists('packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.11.1\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.11.1\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props'))" />
     <Error Condition="!Exists('packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.11.1\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.11.1\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
   </Target>
   <Import Project="packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.11.1\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets" Condition="Exists('packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.11.1\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets')" />
+  <Import Project="packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -79,7 +79,9 @@ namespace BizzWheelSummartive_2.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
+                    Session["Login"] = 2;
                     return RedirectToLocal(returnUrl);
+                  
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:

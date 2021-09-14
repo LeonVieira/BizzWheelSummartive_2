@@ -6,13 +6,19 @@ using System.Web.Mvc;
 
 namespace BizzWheelSummartive_2.Controllers
 {
+ 
     public class HomeController : Controller
     {
-        public ActionResult Index()
+            
+           public ActionResult Index()
+        {
+            Session["Login"] = 0;
+            return View();
+        }
+        public ActionResult Portfolio()
         {
             return View();
         }
-
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
