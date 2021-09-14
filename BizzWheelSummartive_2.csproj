@@ -190,6 +190,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Images\NetVirJou.jpg" />
+    <Content Include="Images\Rick.png" />
     <Content Include="Views\Home\contact.html" />
     <Content Include="Content\css\animate.min.css" />
     <Content Include="Content\css\bootstrap.min.css" />
@@ -311,6 +312,7 @@
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="MIT License.md" />
     <None Include="Properties\PublishProfiles\BizzWheelSum - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
